@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use \DB;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -18,5 +20,9 @@ class UsersController extends Controller
     public function index()
     {
         //
+        
+        $users = DB::table('users')->select('id', 'username')->get();
+
+        return $users;
     }
 }
