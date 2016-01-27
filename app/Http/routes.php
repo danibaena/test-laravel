@@ -23,18 +23,8 @@ Route::get('/movies', 'MoviesController@index');
 
 Route::post('/movies', 'MoviesController@store');
 
-Route::post('/users/{user_id}/movies', 'UserMovieController@store');
+Route::post('/users/{userId}/movies', 'UserMovieController@store');
 
-/*Route::resource('users', 'UsersController', 
-	['only' => ['index']]);*/
+Route::put('/users/{userId}/movies/{movieId}', 'UserMovieController@update');
 
-/*Route::resource('movies', 'MoviesController', 
-	['only' => ['index', 'store']]);*/
-
-/*Route::get('/users', function () {
-    return view('users');
-});
-
-Route::get('/movies', function () {
-    return view('movies');
-});*/
+Route::delete('/users/{userId}/movies/{movieId}', 'UserMovieController@destroy');
