@@ -19,10 +19,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
-        
-        $users = DB::table('users')->select('id', 'username')->get();
-
+        $users = DB::table('users')->select('id', 'username')->distinct()->get();
         return $users;
     }
 }
