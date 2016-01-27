@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('users', 'UsersController');
+
+/*Route::get('/users', function () {
+    return view('users');
+});
+
+Route::get('/movies', function () {
+    return view('movies');
+});*/
