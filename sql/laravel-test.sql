@@ -1,5 +1,5 @@
-create table users (id int, username varchar(255), password varchar(255));
-create table movies (id int, imdb_id varchar(255), name varchar(255));
+create table users (id int not null auto_increment, username varchar(255) not null, password varchar(255) not null, primary key (id));
+create table movies (id int not null auto_increment, imdb_id varchar(255) not null, name varchar(255) not null, primary key (id));
 create table user_movie (user_id int, movie_id int, status char(1));
 
 
@@ -23,3 +23,9 @@ insert into user_movie (user_id, movie_id, status) values (3, 1, 'n');
 insert into user_movie (user_id, movie_id, status) values (2, 4, 'n');
 insert into user_movie (user_id, movie_id, status) values (1, 5, 's');
 insert into user_movie (user_id, movie_id, status) values (2, 7, 'p');
+
+
+select users.id, username, movies.name from users, user_movie, movies where user_movie.user_id = id and ;
+
+
+select distinct users.id as user_id, username, movies.* from users, user_movie, movies where user_movie.user_id = users.id order by users.id;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use \DB;
+use Validator;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -36,6 +37,20 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'imdb_id' => 'required|max:255',
+            'name' => 'required|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            $response = ['success' => false];
+        } else {
+            $response = ['success' => true];
+            DB::table('movies')->insertGetId(
+                ['imdb_id' => $request->imdb_id, 'name' => $request->name]
+            );
+        }
+        
+        return $response;
     }
 }
