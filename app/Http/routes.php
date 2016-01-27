@@ -15,7 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', 'UsersController');
+/* REST API Routes*/
+
+Route::get('/users', 'UsersController@index');
+
+Route::get('/movies', 'MoviesController@index');
+
+Route::post('/movies', 'MoviesController@store');
+
+Route::post('/users/{user_id}/movies', 'UserMovieController@store');
+
+/*Route::resource('users', 'UsersController', 
+	['only' => ['index']]);*/
+
+/*Route::resource('movies', 'MoviesController', 
+	['only' => ['index', 'store']]);*/
 
 /*Route::get('/users', function () {
     return view('users');
