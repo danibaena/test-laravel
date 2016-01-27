@@ -35,7 +35,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'tt0110912','Pulp Fiction'),(2,'tt0099685','Uno de los nuestros'),(3,'tt0102926','El silencio de los corderos'),(4,'tt0081505','El resplandor'),(5,'tt0169547','American Beauty'),(5,'tt0268978','Una mente maravillosa'),(5,'tt0405159','Million Dollar Baby');
+INSERT INTO `movies` VALUES (1,'tt0110912','Pulp Fiction'),(2,'tt0099685','Uno de los nuestros'),(3,'tt0102926','El silencio de los corderos'),(4,'tt0081505','El resplandor'),(5,'tt0169547','American Beauty'),(6,'tt0268978','Una mente maravillosa'),(7,'tt0405159','Million Dollar Baby');
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,4 +96,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-27  7:13:56
+-- Dump completed on 2016-01-27  8:49:52

@@ -12,8 +12,8 @@ insert into movies (id, imdb_id, name) values (2, 'tt0099685', 'Uno de los nuest
 insert into movies (id, imdb_id, name) values (3, 'tt0102926', 'El silencio de los corderos');
 insert into movies (id, imdb_id, name) values (4, 'tt0081505', 'El resplandor');
 insert into movies (id, imdb_id, name) values (5, 'tt0169547', 'American Beauty');
-insert into movies (id, imdb_id, name) values (5, 'tt0268978', 'Una mente maravillosa');
-insert into movies (id, imdb_id, name) values (5, 'tt0405159', 'Million Dollar Baby');
+insert into movies (id, imdb_id, name) values (6, 'tt0268978', 'Una mente maravillosa');
+insert into movies (id, imdb_id, name) values (7, 'tt0405159', 'Million Dollar Baby');
 
 insert into user_movie (user_id, movie_id, status) values (1, 1, 's');
 insert into user_movie (user_id, movie_id, status) values (1, 2, 's');
