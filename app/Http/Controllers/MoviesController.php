@@ -19,8 +19,13 @@ class MoviesController extends Controller
      */
     public function index()
     {
+
         $movies = DB::table('movies')->select()->distinct()->get();
-        return $movies;
+        $responseArray = [
+            'success'=> true,
+            'movies' => $movies
+        ];
+        return $responseArray;
     }
 
     /**
