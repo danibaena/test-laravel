@@ -30,12 +30,12 @@ class UserMovieController extends Controller
         } else {
             $checkMovieId = DB::table('movies')->select()->distinct()->where('id', '=', $request->movie_id)->get();
             $checkUserId = DB::table('users')->select()->distinct()->where('id', '=', $userId)->get();
-            $checkDuplicateSuscription = DB::table('user_movie')->select()
+            $checkSuscription = DB::table('user_movie')->select()
             ->where('movie_id', '=', $request->movie_id)
             ->where('user_id', '=', $userId)
             ->get(); 
 
-            if((!empty($checkMovieId)) && (!empty($checkUserId)) && (empty($checkDuplicateSuscription))){
+            if((!empty($checkMovieId)) && (!empty($checkUserId)) && (empty($checkSuscription))){
                 $response = ['success' => true];
                 DB::table('user_movie')->insertGetId(
                     ['user_id' => $userId, 'movie_id' => $request->movie_id, 'status' => 'n']
@@ -57,7 +57,29 @@ class UserMovieController extends Controller
      */
     public function update(Request $request, $userId, $movieId)
     {        
+        $validator = Validator::make($request->all(), [
+            'new_status' => 'required|in:s,n,p',
+        ]);
 
+        if ($validator->fails()) {
+            $response = ['success' => false];
+        } else {
+            $checkSuscription = DB::table('user_movie')->select()
+            ->where('movie_id', '=', $movieId)
+            ->where('user_id', '=', $userId)
+            ->get();
+
+            if(empty($checkSuscription)){
+                $response = ['success' => false];
+            } else{
+                DB::table('user_movie')
+                    ->where('movie_id', '=', $movieId)
+                    ->where('user_id', '=', $userId)
+                    ->update(['status' => $request->new_status]);
+                $response = ['success' => true];
+            }
+        }
+        return $response;
     }
 
     /**
