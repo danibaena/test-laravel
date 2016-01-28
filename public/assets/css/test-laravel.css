@@ -14,13 +14,13 @@ thead {
   border-top: 1px solid #ddd
 }
 
-.btn-primary,
+.btn-default,
 .btn {
   background-color: #009688;
   color: #212121;
   padding: 8px;
 }
-.btn-primary:hover,
+.btn-default:hover,
 .btn:hover {
   background-color: #212121;
   color: #009688;
