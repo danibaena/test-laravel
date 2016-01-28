@@ -3,14 +3,27 @@ thead {
   color: #212121;
 }
 
-.table td  {
+.table td {
   border-top: none !important;
 }
 
 .rowUsername {
-   padding:8px;
-   line-height:1.428571429;
-   vertical-align:top;
-   border-top:1px solid #ddd
+  padding: 8px;
+  line-height: 1.428571429;
+  vertical-align: top;
+  border-top: 1px solid #ddd
 }
 
+.btn-primary,
+.btn {
+  background-color: #009688;
+  color: #212121;
+  padding: 8px;
+}
+.btn-primary:hover,
+.btn:hover {
+  background-color: #212121;
+  color: #009688;
+  padding: 8px;
+    vertical-align: bottom;
+}

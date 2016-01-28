@@ -4,16 +4,16 @@ $.ajax({
   success: function (response) {
     var trHTML = '';
     $.each(response.users, function (i, item) {
-      trHTML += '<tr class="rowUsername"><td>' + item.username + '</td><td>' + item.movies[0].name + '</td><td>' + getStatus(item.movies[0].status) + '</td></tr>';
+      trHTML += '<tr class="rowUsername"><td>' + item.username + '<br></td><td class="movie">' + item.movies[0].name + '</td><td class="status">' + getStatus(item.movies[0].status) + '</td></tr>';
       $.each(item.movies, function (k, value) {
-        if(k > 0){
-          trHTML += '<tr><td>' + '</td><td>' + value.name + '</td><td>' + getStatus(value.status) + '</td></tr>';
+        if (k > 0) {
+          trHTML += '<tr><td>' + '</td><td class="movie">' + value.name + '</td><td class="status">' + getStatus(value.status) + '</td></tr>';
         }
-
       })
-
     });
+    var lastHtml = '<div class="btn-group"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Add</button><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove">Remove</button><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></div>'
     $('#body_table').append(trHTML);
+    $('.rowUsername').append(lastHtml);
   },
   error: function (response) {
     alert(response);
