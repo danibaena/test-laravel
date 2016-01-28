@@ -24,27 +24,7 @@
         <th>Subscription Status</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Marie</td>
-        <td>Uno de los nuestros</td>
-        <td>Seen</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>Pulp Fiction</td>
-        <td>Pending</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+    <tbody id="body_table">
     </tbody>
   </table>
 </div>

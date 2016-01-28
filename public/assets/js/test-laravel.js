@@ -1,15 +1,32 @@
-var getUsers = function () {
-  $.ajax({
-    type: 'GET',
-    url: '/users',
-    success: function (msg) {
-      console.log('Api works');
-      console.log(msg.success);
-    },
-    error: function (msg) {
-      alert(msg);
-    }
-  });
+$.ajax({
+  type: 'GET',
+  url: '/users',
+  success: function (response) {
+    var trHTML = '';
+    $.each(response.users, function (i, item) {
+      trHTML += '<tr><td>' + item.username + '</td><td>' + item.movies[0].name + '</td><td>' + getStatus(item.movies[0].status) + '</td></tr>';;
+      $.each(item.movies, function (k, value) {
+
+      })
+
+    });
+    $('#body_table').append(trHTML);
+  },
+  error: function (response) {
+    alert(response);
+  }
+});
+
+var getStatus = function (responseStatus) {
+  if (responseStatus === 'n') {
+    return 'Not Seen';
+  }
+  if (responseStatus === 's') {
+    return 'Seen';
+  }
+  if (responseStatus === 'p') {
+    return 'Pending';
+  }
 }
 
 var getMovies = function () {
