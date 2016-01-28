@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /* UI Routes */
 
-Route::get('/home', function() {
-	return view('home');
+Route::get('/', function () {
+    return view('table');
 });
 
 /* REST API Routes*/
