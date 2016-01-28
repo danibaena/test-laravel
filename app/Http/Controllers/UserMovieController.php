@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use \DB;
+use Validator;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,7 +21,30 @@ class UserMovieController extends Controller
      */
     public function store(Request $request, $userId)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'movie_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            $response = ['success' => false];
+        } else {
+            $checkMovieId = DB::table('movies')->select()->distinct()->where('id', '=', $request->movie_id)->get();
+            $checkUserId = DB::table('users')->select()->distinct()->where('id', '=', $userId)->get();
+            $checkDuplicateSuscription = DB::table('user_movie')->select()
+            ->where('movie_id', '=', $request->movie_id)
+            ->where('user_id', '=', $userId)
+            ->get(); 
+
+            if((!empty($checkMovieId)) && (!empty($checkUserId)) && (empty($checkDuplicateSuscription))){
+                $response = ['success' => true];
+                DB::table('user_movie')->insertGetId(
+                    ['user_id' => $userId, 'movie_id' => $request->movie_id, 'status' => 'n']
+                );
+            } else{
+                $response = ['success' => false];
+            }        
+        }
+        return $response;
     }
 
     /**
@@ -32,8 +56,8 @@ class UserMovieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $userId, $movieId)
-    {
-        //
+    {        
+
     }
 
     /**
