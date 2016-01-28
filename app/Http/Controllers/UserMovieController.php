@@ -71,7 +71,7 @@ class UserMovieController extends Controller
 
             if(empty($checkSuscription)){
                 $response = ['success' => false];
-            } else{
+            } else {
                 DB::table('user_movie')
                     ->where('movie_id', '=', $movieId)
                     ->where('user_id', '=', $userId)
@@ -91,6 +91,21 @@ class UserMovieController extends Controller
      */
     public function destroy($userId, $movieId)
     {
-        //
+        $checkSuscription = DB::table('user_movie')->select()
+            ->where('movie_id', '=', $movieId)
+            ->where('user_id', '=', $userId)
+            ->get();
+
+        if(empty($checkSuscription)){
+            $response = ['success' => false];
+        } else {
+            DB::table('user_movie')
+                ->where('user_id', '=', $userId)
+                ->where('movie_id', '=', $movieId)
+                ->delete();
+            $response = ['success' => true];
+        }
+
+        return $response;
     }
 }
