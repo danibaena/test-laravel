@@ -4,8 +4,11 @@ $.ajax({
   success: function (response) {
     var trHTML = '';
     $.each(response.users, function (i, item) {
-      trHTML += '<tr><td>' + item.username + '</td><td>' + item.movies[0].name + '</td><td>' + getStatus(item.movies[0].status) + '</td></tr>';;
+      trHTML += '<tr class="rowUsername"><td>' + item.username + '</td><td>' + item.movies[0].name + '</td><td>' + getStatus(item.movies[0].status) + '</td></tr>';
       $.each(item.movies, function (k, value) {
+        if(k > 0){
+          trHTML += '<tr><td>' + '</td><td>' + value.name + '</td><td>' + getStatus(value.status) + '</td></tr>';
+        }
 
       })
 

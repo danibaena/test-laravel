@@ -2,3 +2,15 @@ thead {
   background-color: #009688;
   color: #212121;
 }
+
+.table td  {
+  border-top: none !important;
+}
+
+.rowUsername {
+   padding:8px;
+   line-height:1.428571429;
+   vertical-align:top;
+   border-top:1px solid #ddd
+}
+
