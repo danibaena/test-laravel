@@ -47,10 +47,5 @@ class Handler extends ExceptionHandler
             return response()->view('missing', [], 404);
         }
         return parent::render($request, $e);
-/*        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
-        }
-
-        return parent::render($request, $e);*/
     }
 }
