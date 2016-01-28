@@ -11,7 +11,7 @@ $.ajax({
         }
       })
     });
-    var lastHtml = '<div class="btn-group"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Add</button><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove">Remove</button><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button></div>'
+    var lastHtml = '<div class="btn-group"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span>Add</button><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove">Remove</button><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span>Edit</button></div>'
     $('#body_table').append(trHTML);
     $('.rowUsername').append(lastHtml);
   },
