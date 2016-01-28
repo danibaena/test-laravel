@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* UI Routes */
+
+Route::get('/home', function() {
+	return view('home');
+});
+
 /* REST API Routes*/
 
 Route::get('/users', 'UsersController@index');
