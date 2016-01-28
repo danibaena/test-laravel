@@ -20,6 +20,24 @@ class UsersController extends Controller
     public function index()
     {
         $users = DB::table('users')->select('id', 'username')->distinct()->get();
-        return $users;
+        $movies = DB::table('movies')->select()->distinct()->get();
+
+        foreach($users as $user){
+            $user_movies = DB::table('user_movie')->select('movie_id', 'status')
+                ->where('user_id', '=', $user->id)
+                ->get();
+            $user->movies = [];
+            foreach($user_movies as $user_movie){
+                $movie = DB::table('movies')->select()->distinct()
+                    ->where('id', '=', $user_movie->movie_id)->get();
+                $movie[0]->status = $user_movie->status;
+                $user->movies = $movie;
+            }
+        }
+        $responseArray = [
+            'success'=> true,
+            'users' => $users
+        ];
+        return $responseArray;
     }
 }
