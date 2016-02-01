@@ -25,6 +25,7 @@ insert into user_movie (user_id, movie_id, status) values (1, 5, 's');
 insert into user_movie (user_id, movie_id, status) values (2, 7, 'p');
 
 
+
 select users.id, username, movies.name from users, user_movie, movies where user_movie.user_id = id and ;
 
 

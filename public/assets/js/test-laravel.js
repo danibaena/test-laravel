@@ -37,7 +37,7 @@ var paintTable = function (users) {
       <span class="glyphicon glyphicon-plus"></span>Add
     </button>
     <button type="button" class="btn btn-default btn-xs">
-      <span class="glyphicon glyphicon-remove">Remove
+      <span class="glyphicon glyphicon-trash">Remove
     </button>
     <button type="button" class="btn btn-default btn-xs">
       <span class="glyphicon glyphicon-pencil"></span>Edit
